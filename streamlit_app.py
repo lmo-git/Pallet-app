@@ -7,7 +7,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
 # Set the title of the application
-st.title("📦 Pallet Detection & Save to Drive ")
+st.title("📦 Pallet Detection & Save to Drive")
 
 # --- Step 1: กรอกเลขอ้างอิงเอกสารด้วยตนเอง ---
 st.subheader("1️⃣ Document Reference")
