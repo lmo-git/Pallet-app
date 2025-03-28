@@ -63,11 +63,14 @@ except ValueError:
 if st.button("✅ Confirm and Save Data"):
     try:
         scopes = [
-            "https://www.googleapis.com/auth/drive.file",
-            "https://www.googleapis.com/auth/spreadsheets"
+           "https://www.googleapis.com/auth/drive.file",
+           "https://www.googleapis.com/auth/spreadsheets"
         ]
-        service_account_info = st.secrets["google_service_account"]
-        creds = Credentials.from_service_account_info(service_account_info, scopes=scopes)
+
+        creds = Credentials.from_service_account_info(
+        st.secrets["google_service_account"],
+        scopes=scopes
+    )
 
         gc = gspread.authorize(creds)
         sheet = gc.open_by_key("1ed2x0LCFSFhxewFRUZZiJO-h2tNnv11o8xbmrCazgMA").sheet1
