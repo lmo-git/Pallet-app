@@ -6,6 +6,9 @@ from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
+st.write("Loaded Email:", st.secrets["google_service_account"]["client_email"])
+
+
 # Set the title of the application
 st.title("📦 Pallet Detection & Save to Drive")
 
@@ -54,10 +57,7 @@ except ValueError:
 # --- Step 5: บันทึกข้อมูลลง Google Sheets และ Drive ---
 if st.button("✅ Confirm and Save Data"):
     try:
-        scopes = [
-            "https://www.googleapis.com/auth/spreadsheets",
-            "https://www.googleapis.com/auth/drive"
-        ]
+        scopes = ["https://www.googleapis.com/auth/cloud-platform"]
         service_account_info = st.secrets["google_service_account"]
         creds = Credentials.from_service_account_info(service_account_info, scopes=scopes)
 
