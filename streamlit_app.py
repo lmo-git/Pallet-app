@@ -57,7 +57,10 @@ except ValueError:
 # --- Step 5: บันทึกข้อมูลลง Google Sheets และ Drive ---
 if st.button("✅ Confirm and Save Data"):
     try:
-        scopes = ["https://www.googleapis.com/auth/cloud-platform"]
+        scopes = [
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/spreadsheets"
+        ]
         service_account_info = st.secrets["google_service_account"]
         creds = Credentials.from_service_account_info(service_account_info, scopes=scopes)
 
