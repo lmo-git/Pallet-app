@@ -8,6 +8,11 @@ from googleapiclient.http import MediaFileUpload
 
 st.write("Loaded Email:", st.secrets["google_service_account"]["client_email"])
 
+if "google_service_account" in st.secrets:
+    st.success("✅ Secrets loaded successfully!")
+else:
+    st.error("❌ Secrets key missing.")
+
 
 # Set the title of the application
 st.title("📦 Pallet Detection & Save to Drive")
